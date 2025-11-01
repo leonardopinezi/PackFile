@@ -1,98 +1,98 @@
-# ⚙️ PackFile  
-**PackFile** é uma linguagem de automação minimalista voltada para **builds, execução de código e tarefas de sistema**.  
-Ela combina uma sintaxe simples — inspirada em Assembly e Batch — com o poder do Node.js, permitindo criar **scripts automatizados, repetíveis e claros**.
+# ⚙️ PackFile
+**PackFile** is a minimalist automation language focused on **builds, code execution, and system tasks**.
+It combines a simple syntax—inspired by Assembly and Batch—with the power of Node.js, allowing you to create **automated, repeatable, and clear scripts**.
 
 ---
 
-## 🧠 Conceito
-Com **PackFile**, você pode criar scripts que:
-- Automatizam **compilações**, **execuções** e **empacotamentos**;  
-- Controlam **fluxos de lógica simples** (comparações, saltos, loops);  
-- Integram **comandos do sistema operacional** diretamente.
+## 🧠 Concept
+With **PackFile**, you can create scripts that:
+- Automate **compilations**, **executions**, and **packaging**;
+- Control **simple logic flows** (comparisons, jumps, loops);
+- Integrate **operating system commands** directly.
 
 ---
 
-## 📘 Sintaxe e Comandos
+## 📘 Syntax and Commands
 
-| Comando | Sintaxe | Descrição |
+| Command | Syntax | Description |
 |----------|----------|-----------|
-| `SET` | `SET <VARIÁVEL> <VALOR>` | Cria ou altera uma variável |
-| `ECHO` | `ECHO <TEXTO>` | Exibe uma mensagem no terminal |
-| `END` | `END` | Finaliza a execução do script |
-| `CLEAN` | `CLEAN` | Limpa o console |
-| `SUM` | `SUM <NUM1> <NUM2> <VAR>` | Soma dois valores e armazena o resultado |
-| `SUB` | `SUB <NUM1> <NUM2> <VAR>` | Subtrai dois valores e armazena o resultado |
-| `#` | `# <COMENTÁRIO>` | Comentário — ignorado na execução |
-| `SPAWN` | `SPAWN <COMANDO>` | Executa um comando do sistema operacional |
-| `IF=` | `IF= <VALOR1> : <VALOR2>` | Executa a próxima linha **somente se** os valores forem iguais |
-| `IF!=` | `IF!= <VALOR1> : <VALOR2>` | Executa a próxima linha **somente se** os valores **forem diferentes** |
+| `SET` | `SET <VARIABLE> <VALUE>` | Creates or modifies a variable |
+| `ECHO` | `ECHO <TEXT>` | Displays a message in the terminal |
+| `END` | `END` | Ends the script execution |
+| `CLEAN` | `CLEAN` | Clears the console |
+| `SUM` | `SUM <NUM1> <NUM2> <VAR>` | Adds two values ​​and stores the result |
+| `SUB` | `SUB <NUM1> <NUM2> <VAR>` | Subtracts two values ​​and stores the result |
+| `#` | `# <COMMENT>` | Comment — ignored during execution |
+| `SPAWN` | `SPAWN <COMMAND>` | Executes an operating system command |
+| `IF=` | `IF= <VALUE1> : <VALUE2>` | Executes the next line **only if** the values ​​are equal |
+| `IF!=` | `IF!= <VALUE1> : <VALUE2>` | Executes the next line **only if** the values ​​are **different** |
 
 ---
-
-## 🧩 Exemplo 1 — “Hello, World!”
+## 🧩 Example 1 — “Hello, World!”
 
 ```bash
-# Define uma variável chamada MSG com o valor "Hello,"
+# Defines a variable called MSG with the value "Hello,"
 SET MSG Hello,
-# Exibe a variável (*MSG) e a palavra "World"
+# Displays the variable (*MSG) and the word "World"
 ECHO *MSG World
 
-# Encerra o programa
+# Ends the program
 END
 ```
 
-**Saída esperada:**
+**Exit:**
 ```
 Hello, World
 ```
 
 ---
 
-## 🛠️ Exemplo 2 — Compilação Automática
+## 🛠️ Example 2 — Automatic Compilation
 
 ```bash
 CLEAN
 SET SRC main.c
 SET OUT app
 
-ECHO Compilando *SRC...
+ECHO Compiling *SRC...
 SPAWN gcc *SRC -o *OUT
 
 IF= 0 : 0
-    ECHO Compilação concluída!
+    ECHO Compilation completed!
 
 END
 ```
 
-**Explicação:**
-- Define arquivos de entrada e saída  
-- Compila um código em C  
-- Mostra mensagem de sucesso  
-- Executa o programa gerado  
+**Explanation:**
+- Defines input and output files
+- Compiles C code
+- Displays a success message
 
 ---
 
-## 💡 Dica
-Você pode **usar variáveis com o prefixo `*`** para expandir valores armazenados.  
-Exemplo:
+## 💡 Tip
+
+You can **use variables with the `*` prefix** to expand stored values.
+### Example:
+
 ```bash
 SET NAME Leonardo
 ECHO Hello *NAME
 ```
-🡒 imprime → `Hello Leonardo`
+🡒 prints → `Hello Leonardo`
 
 ---
 
-## 🧱 Estrutura Interna
-- Desenvolvida em **Node.js**
-- Arquivos de script são nomeados **`PackFile`**
-- Sintaxe **line-based**, fácil de interpretar e expandir
-- Suporte a **labels e saltos** (`:` e `>`)
+## 🧱 Internal Structure
+- Developed in **Node.js**
+- Script files are named **`PackFile`**
+- **Line-based** syntax, easy to interpret and expand
+- Support for **labels and jumps** (`:` and `>`)
 
 ---
 
-## 🚀 Ideias de Uso
-- Automatizar builds de Projetos  
-- Gerar relatórios e logs  
-- Compilar múltiplos projetos em sequência  
-- Criar ferramentas DevOps minimalistas  
+## 🚀 Usage Ideas
+- Automate project builds
+- Generate reports and logs
+- Compile multiple projects sequentially
+- Create minimalist DevOps tools
